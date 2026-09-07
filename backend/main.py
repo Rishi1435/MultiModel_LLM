@@ -121,15 +121,31 @@ def convert_webm_to_wav(source_path: str) -> str:
 
 
 def generate_with_retry(client: genai.Client, contents: list[object]):
-    for attempt in range(3):
-        try:
-            return client.models.generate_content(model=GEMINI_MODEL, contents=contents)
-        except Exception as error:
-            message = str(error)
-            is_temporary = "503" in message or "UNAVAILABLE" in message
-            if not is_temporary or attempt == 2:
-                raise
-            time.sleep(2 ** (attempt + 1))
+    candidate_models = [
+        GEMINI_MODEL,
+        "gemini-3-flash-preview",
+        "gemini-2.5-flash",
+        "gemini-flash-latest",
+    ]
+    models_to_try = []
+    for m in candidate_models:
+        if m and m not in models_to_try:
+            models_to_try.append(m)
+
+    last_error = None
+    for model_name in models_to_try:
+        for attempt in range(2):
+            try:
+                return client.models.generate_content(model=model_name, contents=contents)
+            except Exception as error:
+                last_error = error
+                msg = str(error).upper()
+                is_busy = "503" in msg or "UNAVAILABLE" in msg or "429" in msg or "RESOURCE_EXHAUSTED" in msg or "OVERLOADED" in msg or "BUSY" in msg
+                if not is_busy:
+                    raise
+                time.sleep(1 + attempt)
+    if last_error:
+        raise last_error
 
 
 initialize_database()
