@@ -19,7 +19,7 @@ import imageio_ffmpeg
 
 load_dotenv()
 app = FastAPI(title="Multimodel API")
-frontend_origins = [origin.strip() for origin in os.getenv("FRONTEND_ORIGINS", "http://localhost:5173").split(",") if origin.strip()]
+frontend_origins = [origin.strip() for origin in os.getenv("FRONTEND_ORIGINS", "http://localhost:5173,*").split(",") if origin.strip()]
 app.add_middleware(CORSMiddleware, allow_origins=frontend_origins, allow_methods=["*"], allow_headers=["*"])
 
 IMAGE_TYPES = {"image/jpeg", "image/png", "image/webp"}
