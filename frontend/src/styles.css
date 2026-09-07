@@ -75,6 +75,83 @@ body {
   background: rgba(255, 255, 255, 0.28);
 }
 
+/* Auth Input System (Resilient against browser extensions & autofill) */
+.auth-input-wrapper {
+  position: relative !important;
+  width: 100% !important;
+  display: block !important;
+  box-sizing: border-box !important;
+}
+
+.auth-input {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  height: 48px !important;
+  box-sizing: border-box !important;
+  padding: 0 44px 0 42px !important;
+  background: rgba(10, 14, 24, 0.75) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 12px !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-family: var(--font-sans) !important;
+  outline: none !important;
+  display: block !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
+}
+
+.auth-input:focus {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25) !important;
+  background: rgba(13, 19, 33, 0.95) !important;
+}
+
+.auth-input::placeholder {
+  color: var(--text-tertiary) !important;
+}
+
+/* Chrome autofill dark background fix */
+.auth-input:-webkit-autofill,
+.auth-input:-webkit-autofill:hover,
+.auth-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0px 1000px #0e1424 inset !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+.auth-input-icon {
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: var(--text-tertiary) !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
+.auth-eye-btn {
+  position: absolute !important;
+  right: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background: transparent !important;
+  border: none !important;
+  color: var(--text-tertiary) !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 3 !important;
+  padding: 4px !important;
+  border-radius: 6px !important;
+}
+
+.auth-eye-btn:hover {
+  color: var(--text-primary) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
 /* Layout Shell */
 .studio-shell {
   width: min(1320px, calc(100% - 48px));

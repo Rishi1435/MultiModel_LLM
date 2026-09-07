@@ -119,15 +119,16 @@ export default function Auth({ onAuthenticated }: Props) {
           {mode === "signup" && (
             <div>
               <label style={fieldLabelStyle}>Full Name</label>
-              <div style={inputWrapperStyle}>
-                <UserIcon size={16} style={inputIconStyle} />
+              <div className="auth-input-wrapper">
+                <UserIcon size={16} className="auth-input-icon" />
                 <input
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Alex Mercer"
                   required
                   minLength={2}
-                  style={inputStyle}
+                  className="auth-input"
+                  autoComplete="name"
                 />
               </div>
             </div>
@@ -135,23 +136,24 @@ export default function Auth({ onAuthenticated }: Props) {
 
           <div>
             <label style={fieldLabelStyle}>Email Address</label>
-            <div style={inputWrapperStyle}>
-              <Mail size={16} style={inputIconStyle} />
+            <div className="auth-input-wrapper">
+              <Mail size={16} className="auth-input-icon" />
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="name@example.com"
                 type="email"
                 required
-                style={inputStyle}
+                className="auth-input"
+                autoComplete="email"
               />
             </div>
           </div>
 
           <div>
             <label style={fieldLabelStyle}>Password</label>
-            <div style={inputWrapperStyle}>
-              <Lock size={16} style={inputIconStyle} />
+            <div className="auth-input-wrapper">
+              <Lock size={16} className="auth-input-icon" />
               <input
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -159,12 +161,13 @@ export default function Auth({ onAuthenticated }: Props) {
                 type={showPassword ? "text" : "password"}
                 required
                 minLength={8}
-                style={inputStyle}
+                className="auth-input"
+                autoComplete="current-password"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                style={eyeToggleStyle}
+                className="auth-eye-btn"
                 title={showPassword ? "Hide password" : "Show password"}
               >
                 {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
@@ -314,44 +317,7 @@ const fieldLabelStyle: React.CSSProperties = {
   marginBottom: "7px",
 };
 
-const inputWrapperStyle: React.CSSProperties = {
-  position: "relative",
-  display: "flex",
-  alignItems: "center",
-};
 
-const inputIconStyle: React.CSSProperties = {
-  position: "absolute",
-  left: "14px",
-  color: "var(--text-tertiary)",
-  pointerEvents: "none",
-};
-
-const inputStyle: React.CSSProperties = {
-  width: "100%",
-  height: "46px",
-  padding: "0 40px 0 40px",
-  background: "rgba(10, 14, 24, 0.7)",
-  border: "1px solid rgba(255, 255, 255, 0.1)",
-  borderRadius: "12px",
-  color: "#ffffff",
-  fontSize: "13px",
-  fontFamily: "var(--font-sans)",
-  outline: "none",
-  transition: "border-color 0.2s, box-shadow 0.2s",
-};
-
-const eyeToggleStyle: React.CSSProperties = {
-  position: "absolute",
-  right: "12px",
-  background: "transparent",
-  border: "none",
-  color: "var(--text-tertiary)",
-  cursor: "pointer",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-};
 
 const errorStyle: React.CSSProperties = {
   padding: "10px 14px",
