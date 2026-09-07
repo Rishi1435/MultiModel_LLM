@@ -19,12 +19,10 @@ services:
       - key: GEMINI_MODEL
         value: gemini-2.5-flash
 
-  # Frontend React Static Site
+  # Frontend React Static Site (Render hosts static sites on its global CDN, so region/plan are omitted)
   - type: web
     name: multimodel-frontend
     runtime: static
-    region: oregon
-    plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
