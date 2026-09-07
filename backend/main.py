@@ -25,7 +25,7 @@ app.add_middleware(CORSMiddleware, allow_origins=frontend_origins, allow_methods
 IMAGE_TYPES = {"image/jpeg", "image/png", "image/webp"}
 AUDIO_TYPES = {"audio/wav", "audio/x-wav", "audio/mpeg", "audio/mp4", "audio/x-m4a", "audio/webm", "video/webm"}
 DEFAULT_PROMPT = "Listen to the spoken question and answer it based on the image. Give a short, simple answer."
-GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3-flash-preview")
 DATABASE_PATH = Path(os.getenv("DATABASE_PATH", "multimodel.db"))
 TOKEN_SECRET = os.getenv("TOKEN_SECRET", "local-development-secret-change-me")
 

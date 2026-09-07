@@ -17,7 +17,7 @@ services:
       - key: FRONTEND_ORIGINS
         value: "*"
       - key: GEMINI_MODEL
-        value: gemini-2.5-flash
+        value: gemini-3-flash-preview
 
   # Frontend React Static Site (Render hosts static sites on its global CDN, so region/plan are omitted)
   - type: web

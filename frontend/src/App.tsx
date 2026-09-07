@@ -311,7 +311,7 @@ export default function App() {
             <Wand2 size={20} />
           </div>
           <div className="brand-title">
-            Multimodel <span className="brand-version">v2.5 Flash</span>
+            Multimodel <span className="brand-version">v3 Flash Preview</span>
           </div>
         </div>
 
@@ -357,7 +357,7 @@ export default function App() {
         <div className="hero-badges">
           <div className="capability-badge">
             <Check size={12} style={{ color: "var(--accent-success)" }} />
-            <span>Gemini 2.5 Flash</span>
+            <span>Gemini 3 Flash Preview</span>
           </div>
           <div className="capability-badge">
             <Check size={12} style={{ color: "var(--accent-success)" }} />
@@ -593,7 +593,7 @@ export default function App() {
             {answer && (
               <span className="model-tag">
                 <Sparkles size={11} />
-                Gemini 2.5 Flash
+                Gemini 3 Flash Preview
               </span>
             )}
           </div>
@@ -708,7 +708,7 @@ export default function App() {
       {/* Studio Footer */}
       <footer className="studio-footer">
         <div className="footer-credits">
-          Multimodel Studio • Powered by <span>Gemini 2.5 Flash</span> & <span>gTTS</span>
+          Multimodel Studio • Powered by <span>Gemini 3 Flash Preview</span> & <span>gTTS</span>
         </div>
         <div style={{ display: "flex", gap: 16 }}>
           <span>SQLite Isolated Storage</span>

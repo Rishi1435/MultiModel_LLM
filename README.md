@@ -9,7 +9,7 @@ Upload an image and a spoken question. Gemini answers the question using the ima
 3. Install frontend dependencies: `cd frontend` then `npm install`.
 
 For local frontend development, copy `frontend\.env.example` to `frontend\.env`.
-For deployment, set `VITE_API_BASE_URL` to the deployed backend URL in the frontend service environment. Set `FRONTEND_ORIGINS` on the backend to the deployed frontend URL. `GEMINI_MODEL` defaults to `gemini-2.5-flash` and can be changed in the backend environment if needed.
+For deployment, set `VITE_API_BASE_URL` to the deployed backend URL in the frontend service environment. Set `FRONTEND_ORIGINS` on the backend to the deployed frontend URL. `GEMINI_MODEL` defaults to `gemini-3-flash-preview` and can be changed in the backend environment if needed.
 
 ## Run
 
